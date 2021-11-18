@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="anniu">按钮</button>
+</body>
+<script>
+    // call，apply，bind的作用都是改变函数中this的指向
+    // call和apply的唯一区别是call接收的是每个参数，而apply接收的是一个参数数组
+    // fn.call(obj, 1, 2, 3)      fn.apply(obj, [1, 2, 3])
+    // call和bind接收参数的方式相同，唯一的区别是call时立即执行，而bind则是等待执行
+    var btn = document.getElementsByClassName('anniu')[0];
+    let obj = {}
+    btn.onclick = LearnThis.bind(obj, 1, 2)
+    function LearnThis (firstName, lastName) {
+        this.firstName =  firstName
+        this.lastName =  lastName
+        console.log(this);
+    }
+    // var abc = new LearnThis('zhang', 'san')
+    // var def = new LearnThis('li', 'si')
+    // console.log(abc.firstName);
+
+</script>
+</html>
